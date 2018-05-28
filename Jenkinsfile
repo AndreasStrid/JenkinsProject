@@ -5,7 +5,7 @@ pipeline{
         stage('Compile'){
             steps{
                withMaven(jdk: 'JDK_Jenkins', maven: 'Maven_Jenkins') {
-                    bh 'mvn clean compile'
+                    sh 'mvn clean compile'
                 }
             }
         }
