@@ -4,21 +4,21 @@ pipeline{
     stages{
         stage('Compile'){
             steps{
-                withMaven(maven :'maven_3_5_2'){
+               withMaven(jdk: 'JDK_Jenkins', maven: 'Maven_Jenkins') {
                     bh 'mvn clean compile'
                 }
             }
         }
          stage('Testing'){
                     steps{
-                        withMaven(maven :'maven_3_5_2'){
+                       withMaven(jdk: 'JDK_Jenkins', maven: 'Maven_Jenkins') {
                             sh 'mvn test'
                         }
                     }
                 }
                  stage('Deployment'){
                             steps{
-                                withMaven(maven : 'maven_3_5_2'){
+                                withMaven(jdk: 'JDK_Jenkins', maven: 'Maven_Jenkins') {
                                     sh 'mvn deploy'
                                 }
                             }
